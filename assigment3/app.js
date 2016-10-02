@@ -76,8 +76,10 @@ function MenuSearchService($http, Endpoint) {
         description : items[i].description
       };
 
-      if (item.description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
-        matched.push(item);
+      if (searchTerm) {
+        if (item.description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
+          matched.push(item);
+        }
       }
     }
 

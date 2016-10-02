@@ -1,0 +1,12 @@
+<div class="form-group">
+  <ol>
+    <li ng-repeat="item in list.items">
+      <div >
+        <div>{{ item.name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ item.short_name }}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button ng-click="list.onRemove({index: $index});">Don't want this one!</button></div>
+        <div>{{ item.description }}</div>
+      </div>
+    </li>
+  </ol>
+<div class="error" ng-if="list.emptyList()">Nothing found</div>
+</div>

@@ -24,7 +24,6 @@ function MenuDataService($http, ApiBasePath) {
   };
 
   service.getItemsForCategory = function (categoryShortName) {
-    console.log("hola:"+categoryShortName);
     return $http({
       method: "GET",
       url: (ApiBasePath + "menu_items.json"),

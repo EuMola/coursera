@@ -6,7 +6,7 @@ angular.module('data')
   templateUrl: 'src/data/templates/itemList.template.html',
   bindings: {
     items: '<',
-    category: '<'
+    category:'@'
   }
 });
 

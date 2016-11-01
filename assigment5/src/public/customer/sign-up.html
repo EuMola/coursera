@@ -1,0 +1,45 @@
+<div class="container">
+  <h2 class="text-center">Sign Up</h2><br>
+
+  <div class="text-center">
+    <fieldset>
+      <form name='signForm' novalidate>
+        <input type="text" name="name" placeholder="Name"
+               ng-model="sign.user.name"
+               required
+               minlength="4"
+               ng-maxlength="10"><br>
+        <span class="alert" ng-if="(signForm.name.$error.minlength || signForm.name.$error.required) && signForm.name.$touched">
+          Name must be at least 4 characters long<br><br></span>
+        <span class="alert" ng-if="signForm.name.$error.maxlength && signForm.name.$touched">
+          Name must not be longer than 10 characters<br><br></span>
+
+        <input type="text" name="surname" placeholder="Surname"
+               ng-model="sign.user.surname"
+               required
+               minlength="4"
+               ng-maxlength="20"><br>
+        <span class="alert" ng-if="(signForm.surname.$error.minlength || signForm.surname.$error.required) && signForm.surname.$touched">
+          Surname must be at least 4 characters long<br><br></span>
+        <span class="alert" ng-if="signForm.surname.$error.maxlength && signForm.surname.$touched">
+          Surname must not be longer than 20 characters<br><br></span>
+
+        <input type="email" name="email" placeholder="Email"
+               ng-model="sign.user.email"
+               required><br>
+        <span class="alert" ng-if="signForm.email.$invalid && signForm.email.$touched">
+          Must be a valid email address: handle@domain format<br><br></span>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+               ng-model="sign.user.phone"
+               pattern="(\d{3})-(\d{3})-(\d{4})"><br>
+        <div class="alert" ng-if="signForm.phone.$invalid && signForm.phone.$touched">
+          Phone must be in the format ###-###-####.
+        </div>
+
+        <button ng-disabled="signForm.$invalid" ng-click="sign.submit()">Submit</button>
+      </form>
+    </fieldset>
+  </div>
+
+</div>

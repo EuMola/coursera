@@ -1,0 +1,24 @@
+<div class="container">
+  <h2 class="text-center">My Info</h2><br>
+  <div class="menu-item-tile col-md-12" ng-if="info.user != null">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="menu-item-photo">
+          <div>{{info.user.item.short_name}}</div>
+          <img class="img-responsive" width="250" height="150" ng-src="{{info.basePath}}/images/{{info.user.item.short_name}}.jpg" alt="{{info.user.item.name}}">
+        </div>
+        <div class="menu-item-price">{{info.user.item.name}}</div>
+      </div>
+      <div class="menu-item-description col-sm-6">
+        <h4 class="menu-item-title">{{info.user.firstname}}</h4>
+        <h4 class="menu-item-title">{{info.user.lastname}}</h4>
+        <p class="menu-item-details">{{info.user.email}}</p>
+        <p class="menu-item-details">{{info.user.phone}}</p>
+      </div>
+    </div>
+    <hr class="visible-xs">
+  </div>
+  <div class="menu-item-tile col-md-12" ng-if="info.user == null">
+    <h3 class="text-center">No info available</h3>
+  </div>
+</div>

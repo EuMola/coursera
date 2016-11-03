@@ -119,9 +119,31 @@ input {
   color: #61122f;
   font-weight: bold;
 }
+
 button {
+  background-image: -webkit-linear-gradient(top, #f6b319, #f6b319);
+  background-image: -moz-linear-gradient(top, #f6b319, #f6b319);
+  background-image: -ms-linear-gradient(top, #f6b319, #f6b319);
+  background-image: -o-linear-gradient(top, #f6b319, #f6b319);
+  background-image: linear-gradient(to bottom, #f6b319, #f6b319);
+  -webkit-border-radius: 18;
+  -moz-border-radius: 18;
+  border-radius: 16px;
   color: #61122f;
+  background: #f6b319;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
   font-weight: bold;
+}
+button:disabled {
+    background: #dddddd;
+}
+button:hover {
+  background: #d49715;
+  text-decoration: none;
+}
+button:disabled {
+    background: #dddddd;
 }
 
 .alert {

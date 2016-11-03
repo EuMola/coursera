@@ -4,25 +4,25 @@
   <div class="text-center">
     <fieldset>
       <form name='signForm' novalidate>
-        <input type="text" name="name" placeholder="Name"
-               ng-model="sign.user.name"
+        <input type="text" name="firstname" placeholder="First Name"
+               ng-model="sign.user.firstname"
                required
                minlength="4"
                ng-maxlength="10"><br>
-        <span class="alert" ng-if="(signForm.name.$error.minlength || signForm.name.$error.required) && signForm.name.$touched">
-          Name must be at least 4 characters long<br><br></span>
-        <span class="alert" ng-if="signForm.name.$error.maxlength && signForm.name.$touched">
-          Name must not be longer than 10 characters<br><br></span>
+        <span class="alert" ng-if="(signForm.firstname.$error.minlength || signForm.firstname.$error.required) && signForm.firstname.$touched">
+          First Name must be at least 4 characters long<br><br></span>
+        <span class="alert" ng-if="signForm.firstname.$error.maxlength && signForm.firstname.$touched">
+          First Name must not be longer than 10 characters<br><br></span>
 
-        <input type="text" name="surname" placeholder="Surname"
-               ng-model="sign.user.surname"
+        <input type="text" name="lastname" placeholder="Last Name"
+               ng-model="sign.user.lastname"
                required
                minlength="4"
                ng-maxlength="20"><br>
-        <span class="alert" ng-if="(signForm.surname.$error.minlength || signForm.surname.$error.required) && signForm.surname.$touched">
-          Surname must be at least 4 characters long<br><br></span>
-        <span class="alert" ng-if="signForm.surname.$error.maxlength && signForm.surname.$touched">
-          Surname must not be longer than 20 characters<br><br></span>
+        <span class="alert" ng-if="(signForm.lastname.$error.minlength || signForm.lastname.$error.required) && signForm.lastname.$touched">
+          Last Name must be at least 4 characters long<br><br></span>
+        <span class="alert" ng-if="signForm.lastname.$error.maxlength && signForm.lastname.$touched">
+          Last Name must not be longer than 20 characters<br><br></span>
 
         <input type="email" name="email" placeholder="Email"
                ng-model="sign.user.email"
@@ -32,12 +32,22 @@
 
         <input type="text" name="phone" placeholder="Phone ###-###-####"
                ng-model="sign.user.phone"
-               pattern="(\d{3})-(\d{3})-(\d{4})"><br>
+               pattern="(\d{3})-(\d{3})-(\d{4})"
+               required><br>
         <div class="alert" ng-if="signForm.phone.$invalid && signForm.phone.$touched">
           Phone must be in the format ###-###-####.
         </div>
 
-        <button ng-disabled="signForm.$invalid" ng-click="sign.submit()">Submit</button>
+        <input type="text" name="dish" placeholder="Favorite Dish Number"
+               ng-model="sign.user.dish"
+               required><br>
+        <span class="alert" ng-hide="sign.validDish">
+          No such menu number exists<br><br></span>
+
+        <span class="text-center" ng-if="sign.validUser && signForm.$valid">
+            <h3>Your information has been saved</h3><br></span>
+
+        <button ng-disabled="signForm.$invalid" ng-click="sign.validate()">Submit</button>
       </form>
     </fieldset>
   </div>
